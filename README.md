@@ -193,7 +193,7 @@ We welcome contributions from the community to help make Agricycle more robust a
 - **Name:** Aman Kumar Prabhat
 - **GitHub:** [amanrock1/aman_portfolio](https://github.com/amanrock1/aman_portfolio)
 - **LinkedIn:** [Aman Prabhat](https://www.linkedin.com/in/aman-prabhat-b75735325/)
-- **Portfolio:** [amankumarprabhat.vercel.app](https://amankumarprabhat.vercel.app/)
+- **Portfolio:** [amankumarprabhat.vercel.app](https://argicycle.vercel.app/)
 
 ---
 
