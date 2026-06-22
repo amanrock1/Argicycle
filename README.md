@@ -188,9 +188,12 @@ We welcome contributions from the community to help make Agricycle more robust a
 
 ---
 
-## 📄 License
+## 👨‍💻 Author
 
-Distributed under the MIT License. See `LICENSE` for more information.
+- **Name:** Aman Kumar Prabhat
+- **GitHub:** [amanrock1/aman_portfolio](https://github.com/amanrock1/aman_portfolio)
+- **LinkedIn:** [Aman Prabhat](https://www.linkedin.com/in/aman-prabhat-b75735325/)
+- **Portfolio:** [amankumarprabhat.vercel.app](https://amankumarprabhat.vercel.app/)
 
 ---
 
