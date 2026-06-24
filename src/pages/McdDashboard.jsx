@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function McdDashboard({ orders, onCycleStatus, compostStock, alerts, onBroadcastAlert, wards, onLogWard, theme, toggleTheme }) {
+export default function McdDashboard({ mcdToken, orders, onCycleStatus, compostStock, alerts, onBroadcastAlert, wards, onLogWard, theme, toggleTheme }) {
   const [selectedWard, setSelectedWard] = useState('Rohini');
   const [wasteForm, setWasteForm] = useState({ wet: 5, dry: 3 });
   const [logSuccess, setLogSuccess] = useState('');
@@ -14,7 +14,11 @@ export default function McdDashboard({ orders, onCycleStatus, compostStock, aler
 
   const fetchMatchmaking = async () => {
     try {
-      const res = await fetch('/api/matchmaking');
+      const res = await fetch('/api/matchmaking', {
+        headers: {
+          'Authorization': `Bearer ${mcdToken}`
+        }
+      });
       if (res.ok) setMatchData(await res.json());
     } catch {}
   };
@@ -201,9 +205,8 @@ export default function McdDashboard({ orders, onCycleStatus, compostStock, aler
                       </table>
                     </div>
                   </div>
-                ) : (
-                  <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', padding: '1.5rem 0', textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>⚙</div>
+                  <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', padding: '1.5rem 0', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2.5" className="animate-spin"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
                     Calculating optimum fertilizer demand curves…
                   </div>
                 )}
@@ -315,14 +318,14 @@ export default function McdDashboard({ orders, onCycleStatus, compostStock, aler
                 </h2>
                 <div className="leaderboard-list">
                   {[
-                    { rank: '1', ward: 'Dwarka', score: '91%', medal: '🥇' },
-                    { rank: '2', ward: 'Pitampura', score: '88%', medal: '🥈' },
-                    { rank: '3', ward: 'Rohini', score: '84%', medal: '🥉' },
-                    { rank: '4', ward: 'Janakpuri', score: '79%', medal: '' },
+                    { rank: '1', ward: 'Dwarka', score: '91%' },
+                    { rank: '2', ward: 'Pitampura', score: '88%' },
+                    { rank: '3', ward: 'Rohini', score: '84%' },
+                    { rank: '4', ward: 'Janakpuri', score: '79%' },
                   ].map(item => (
                     <div key={item.ward} className="leaderboard-item">
                       <span className={`leaderboard-rank rank-${item.rank === '4' ? 'other' : item.rank}`}>
-                        {item.medal || item.rank}
+                        {item.rank}
                       </span>
                       <div className="leaderboard-info">
                         <div className="leaderboard-name">{item.ward} Ward</div>

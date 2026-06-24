@@ -41,7 +41,6 @@ export default function FarmerPortal({ orders, onPlaceOrder, compostStock, alert
     }
   };
 
-  const cropEmoji = { Wheat: '🌾', Rice: '🌾', Sugarcane: '🎋', Mustard: '🌻', Vegetables: '🥬' };
   const totalOrdered = orders.reduce((s, o) => s + o.qty, 0);
 
   return (
@@ -73,7 +72,7 @@ export default function FarmerPortal({ orders, onPlaceOrder, compostStock, alert
               {/* Warm chip */}
               <div className="warm-chip" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
                 <span className="live-dot amber-dot"></span>
-                🌱 किसान सुविधा पोर्टल
+                किसान सुविधा पोर्टल
               </div>
               <h1 style={{
                 fontFamily: 'var(--font-display)',
@@ -280,11 +279,11 @@ export default function FarmerPortal({ orders, onPlaceOrder, compostStock, alert
                       onChange={handleInputChange}
                       className="form-control"
                     >
-                      <option value="Wheat">🌾 गेहूं — Wheat</option>
-                      <option value="Rice">🌾 धान — Paddy / Rice</option>
-                      <option value="Sugarcane">🎋 गन्ना — Sugarcane</option>
-                      <option value="Mustard">🌻 सरसों — Mustard</option>
-                      <option value="Vegetables">🥬 सब्जियां — Vegetables</option>
+                      <option value="Wheat">गेहूं — Wheat</option>
+                      <option value="Rice">धान — Paddy / Rice</option>
+                      <option value="Sugarcane">गन्ना — Sugarcane</option>
+                      <option value="Mustard">सरसों — Mustard</option>
+                      <option value="Vegetables">सब्जियां — Vegetables</option>
                     </select>
                   </div>
 
@@ -316,7 +315,7 @@ export default function FarmerPortal({ orders, onPlaceOrder, compostStock, alert
                     alignItems: 'center',
                   }}>
                     <span style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
-                      {cropEmoji[formData.cropType] || '🌱'} {formData.quantity} kg × ₹4
+                      {formData.quantity} kg × ₹4
                     </span>
                     <div style={{ textAlign: 'right' }}>
                       <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', fontWeight: '800', color: 'var(--color-primary)', lineHeight: 1 }}>
@@ -431,7 +430,7 @@ export default function FarmerPortal({ orders, onPlaceOrder, compostStock, alert
                 pointerEvents: 'none',
               }} />
               <h3 style={{ fontSize: '0.95rem', fontWeight: '700', color: 'rgba(240,237,228,0.9)', marginBottom: '0.4rem', position: 'relative', zIndex: 1 }}>
-                📞 किसान सहायता — Helpline
+                किसान सहायता — Helpline
               </h3>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.75rem', fontWeight: '800', color: '#E9C46A', marginBottom: '0.3rem', position: 'relative', zIndex: 1 }}>
                 1800-419-7220
@@ -448,13 +447,13 @@ export default function FarmerPortal({ orders, onPlaceOrder, compostStock, alert
                 जैविक खाद के फायदे
               </div>
               {[
-                ['🌱', 'Improves soil carbon & water retention'],
-                ['📉', 'Cuts fertilizer cost by up to 55%'],
-                ['🌾', 'Increases yield by 15–20% in 2 seasons'],
-                ['♻️', 'Diverts Delhi waste from landfills'],
-              ].map(([icon, text]) => (
-                <div key={text} style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start', marginBottom: '0.6rem', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
-                  <span style={{ flexShrink: 0 }}>{icon}</span>
+                'Improves soil carbon & water retention',
+                'Cuts fertilizer cost by up to 55%',
+                'Increases yield by 15–20% in 2 seasons',
+                'Diverts Delhi waste from landfills',
+              ].map((text) => (
+                <div key={text} style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', marginBottom: '0.6rem', fontSize: '0.875rem', color: 'var(--color-text-muted)' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="3" style={{ flexShrink: 0 }}><polyline points="20 6 9 17 4 12"/></svg>
                   <span>{text}</span>
                 </div>
               ))}

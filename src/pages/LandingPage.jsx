@@ -51,7 +51,7 @@ export default function LandingPage({ setPage, compostStock, orders, alerts, war
             {/* Warm chip instead of cold dev badge */}
             <div className="warm-chip">
               <span className="live-dot"></span>
-              <span>🌱 Live Platform — Delhi NCR</span>
+              <span>Live Platform — Delhi NCR</span>
             </div>
 
             <span className="hero-eyebrow">Circular Economy in Action</span>

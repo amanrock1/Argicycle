@@ -96,7 +96,10 @@ export default function App() {
     try {
       const res = await fetch('/api/orders', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${farmerToken}`
+        },
         body: JSON.stringify({ farmer, village, crop, qty })
       });
       if (res.ok) {
@@ -129,7 +132,12 @@ export default function App() {
   // API Call: Cycle Shipping Status (MCD Portal)
   const handleCycleStatus = async (id) => {
     try {
-      const res = await fetch(`/api/orders/${id}/status`, { method: 'PUT' });
+      const res = await fetch(`/api/orders/${id}/status`, { 
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${mcdToken}`
+        }
+      });
       if (res.ok) {
         const data = await res.json();
         setOrders(orders.map(o => o.id === id ? data.order : o));
@@ -150,7 +158,10 @@ export default function App() {
     try {
       const res = await fetch('/api/alerts/broadcast', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${mcdToken}`
+        },
         body: JSON.stringify({ alertMessage })
       });
       if (res.ok) {
@@ -167,7 +178,10 @@ export default function App() {
     try {
       const res = await fetch('/api/wards/log', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${mcdToken}`
+        },
         body: JSON.stringify({ wardName, wetTons, dryTons })
       });
       if (res.ok) {
@@ -264,12 +278,12 @@ export default function App() {
 
             {page === 'farmer' && farmerToken && (
               <button onClick={() => handleLogout('farmer')} className="btn btn-outline" style={{ padding: '0.5rem 1rem' }}>
-                Logout 🌾
+                Logout
               </button>
             )}
             {page === 'mcd' && mcdToken && (
               <button onClick={() => handleLogout('mcd')} className="btn btn-outline" style={{ padding: '0.5rem 1rem' }}>
-                Logout 🏛️
+                Logout
               </button>
             )}
             {!farmerToken && page !== 'farmer' && (
@@ -316,6 +330,7 @@ export default function App() {
             <LoginPortal onLoginSuccess={handleLoginSuccess} initialRole="mcd" />
           ) : (
             <McdDashboard 
+              mcdToken={mcdToken}
               orders={orders} 
               onCycleStatus={handleCycleStatus}
               compostStock={compostStock} 

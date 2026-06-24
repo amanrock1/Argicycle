@@ -30,7 +30,7 @@ export default function PublicDashboard({ compostStock, orders, alerts, wards })
         {/* Active Irrigation Alerts */}
         <div style={{ backgroundColor: '#F0FDF4', borderLeft: '6px solid var(--color-primary)', borderRadius: '0.75rem', padding: '1.75rem', marginBottom: '2.5rem', boxShadow: 'var(--shadow-sm)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-            <span style={{ fontSize: '1.5rem' }}>📢</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2.5" style={{ flexShrink: 0 }}><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
             <h3 style={{ fontSize: '1.1rem', color: 'var(--color-dark-green)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
               Active Irrigation Broadcast Advice
             </h3>
@@ -109,7 +109,7 @@ export default function PublicDashboard({ compostStock, orders, alerts, wards })
           {/* Leaderboard Card */}
           <div className="farmer-card" style={{ height: 'fit-content' }}>
             <h2 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', borderBottom: '2px solid var(--bg-alt)', paddingBottom: '0.75rem' }}>
-              🏆 Cleanliness Leaderboard
+              Cleanliness Leaderboard
             </h2>
             <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem' }}>
               Wards ranked by wet vs dry waste source segregation efficiency. Segregating wet waste allows compost production.
@@ -137,7 +137,7 @@ export default function PublicDashboard({ compostStock, orders, alerts, wards })
           {/* Citizen Guide Card */}
           <div className="farmer-card">
             <h2 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', borderBottom: '2px solid var(--bg-alt)', paddingBottom: '0.75rem' }}>
-              🌱 Citizen Segregation Guide: How to help
+              Citizen Segregation Guide: How to help
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'flex', gap: '1rem' }}>
