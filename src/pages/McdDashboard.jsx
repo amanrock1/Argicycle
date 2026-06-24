@@ -205,6 +205,7 @@ export default function McdDashboard({ mcdToken, orders, onCycleStatus, compostS
                       </table>
                     </div>
                   </div>
+                ) : (
                   <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', padding: '1.5rem 0', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2.5" className="animate-spin"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
                     Calculating optimum fertilizer demand curves…
